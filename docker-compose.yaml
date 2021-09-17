@@ -1,18 +1,18 @@
 services:
   mtwa-webserver:
-    image: kmharish/mtwa-webserver
+    image: suneel35/mtwa-webserver
     ports:
       - '80:80'
     links:
       - mtwa-appserver
   mtwa-appserver:
-    image: kmharish/mtwa-appserver
+    image: suneel35/mtwa-appserver
     ports:
       - '8080:8080'
     links:
       - mtwa-mysql
   mtwa-mysql:
-    image: kmharish/mtwa-mysql
+    image: suneel35/mtwa-mysql
     ports:
       - '3306:3306'
     environment:
