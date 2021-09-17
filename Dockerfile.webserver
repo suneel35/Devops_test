@@ -1,0 +1,18 @@
+FROM ubuntu/apache2
+
+RUN apt update && apt install -y python3-pip wget && apt clean
+RUN pip install pymysql
+RUN a2dismod mpm_event && a2enmod mpm_prefork cgi
+
+WORKDIR /etc/apache2/sites-enabled/
+RUN wget "https://s3.amazonaws.com/richbourg-s3/mtwa/web/000-default.conf"
+
+WORKDIR /etc/apache2/
+RUN wget "https://s3.amazonaws.com/richbourg-s3/mtwa/web/ports.conf"
+
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN bash install.sh
+WORKDIR /
+RUN rm -rf /app

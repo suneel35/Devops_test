@@ -1,0 +1,19 @@
+services:
+  mtwa-webserver:
+    image: kmharish/mtwa-webserver
+    ports:
+      - '80:80'
+    links:
+      - mtwa-appserver
+  mtwa-appserver:
+    image: kmharish/mtwa-appserver
+    ports:
+      - '8080:8080'
+    links:
+      - mtwa-mysql
+  mtwa-mysql:
+    image: kmharish/mtwa-mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: appdemo
