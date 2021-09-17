@@ -9,9 +9,9 @@ pipeline {
         stage('Docker Builds') {
             steps {
                 script {
-                    docker.build("kmharish/mtwa-webserver", "-f Dockerfile.webserver .")
-                    docker.build("kmharish/mtwa-appserver", "-f Dockerfile.appserver .")
-                    docker.build("kmharish/mtwa-mysql", "-f Dockerfile.mysql .")
+                    docker.build("suneel35/mtwa-webserver", "-f Dockerfile.webserver .")
+                    docker.build("suneel35/mtwa-appserver", "-f Dockerfile.appserver .")
+                    docker.build("suneel35/mtwa-mysql", "-f Dockerfile.mysql .")
                 }
             }
         }
