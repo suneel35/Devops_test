@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://gitlab.com/HarishKM7/multi-tiered-web-app']]])
+                git branch: 'main', url: 'https://github.com/suneel35/Devops_test.git'
             }
         }
         stage('Docker Builds') {
